@@ -1,0 +1,10 @@
+#colorDiv {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color:rgba(18, 125, 211, 0.2);
+}
+html {
+    background-color: lightblue;
+    background-image: url("../Oswald/háttér1.png");
+}

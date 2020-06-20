@@ -1,0 +1,49 @@
+@font-face{
+    font-family: "Osw1";
+    src: url(Fonts/Oswald/Os);
+    font-weight: 100;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Kodchasan:wght@500&family=Roboto:ital,wght@1,300&display=swap');
+
+
+        
+h1 {
+    color: red;
+    font-family: 'Kodchasan', sans-serif;
+    font-weight: lighter;
+}
+p {
+    color: cornflowerblue;
+    font-family: 'Roboto', sans-serif;
+}
+img {
+    width: 14.5%;
+    height: 85px;
+    box-shadow: 6px 6px 10px rgb(22, 2, 2);
+    margin: 5%;
+
+}
+h3{
+    font-family: 'Robto' , sans-serif;
+    }
+#biohead{
+    color: darkblue;
+}
+#skillshead{
+    color: darkorange;
+}
+.par1{
+    font-size: 20px;
+    font-weight: 600;
+}
+.bold{
+    font-weight: bold;
+    margin: 10px 20px 0;
+}
+.img-div{
+    background-color: lightblue;
+}
+#img-1{display: none;
+}
+
