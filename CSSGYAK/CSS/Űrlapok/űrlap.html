@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <fieldset>
+            <legend>Személyes adatok: </legend>
+            <div>
+                <label for="név">NÉV: *</label>
+                <input id="név" type="text" name="név" required>
+            </div>
+            <div>
+                <label for="cím">CÍM: *</label>
+                <input id="cím" type="text" name="cím" required>
+            </div>
+            <div>
+                <label for="email">EMAIL:*</label>
+                <input id="email" type="email" name="email" required>
+            </div>
+            <div>
+                <label for="egyéb">EGYÉB:</label>
+                <textarea name="egyéb" id="egyéb" cols="20" rows="5"></textarea>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>EXTRÁK: </legend>
+            <div>EXTRA FELTÉT:
+                <div>
+                    <label for="nincs"> Nincs:</label>
+                    <input checked id="nincs" name="radio" type="radio" value="0">
+                </div>
+                <div>
+                    <label for="sajt">Feltét 1:</label>
+                    <input checked id="sajt" name="radio" type="radio" value="100">
+                </div>
+                <div>
+                    <label for="sajt+">Feltét 2:</label>
+                    <input checked id="sajt+" name="radio" type="radio" value="200">
+                </div>
+                <div>
+                    <label for="hussy">Feltét 3:</label>
+                    <input checked id="hussy" name="radio" type="radio" value="300">
+                </div>
+                <div>
+                    <label for="">Feltét 4:</label>
+                    <input checked id="hussy+" name="radio" type="radio" value="400">
+                </div>
+                <div>
+                    <label for="sauce">Szószok:</label>
+                    <select id="sauce" name="szószok">
+                        <option value="0" selected>szósz 1</option>
+                        <option value="100">szósz 2</option>
+                    </select>
+
+                </div>
+            </div>
+        </fieldset>
+
+    </form>
+
+</body>
+
+</html>
