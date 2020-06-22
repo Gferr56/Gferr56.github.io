@@ -1,0 +1,11 @@
+#color1{
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(223, 237, 240, 0.7);
+}
+
+html {
+    background-image: url("/Img/pára\ háttér.jpg");
+    background-color: rgba(223, 237, 240, 0.7);
+}
