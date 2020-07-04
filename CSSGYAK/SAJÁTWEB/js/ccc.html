@@ -1,0 +1,27 @@
+
+
+<form name="demoForm">
+    <select name="demoSelect" onchange="showData()">
+        <option value="1">Select:</option>
+        <option value="2">Option 1</option>
+        <option value="3">Option 2</option>
+        <option value="4">Option 3</option>
+    </select>
+</form>
+
+<p id="firstP">&nbsp;</p>
+<p id="secondP">&nbsp;</p>
+<p id="thirdP">&nbsp;</p>
+
+<script>
+function showData() {
+    var theSelect = demoForm.demoSelect;
+    var firstP = document.getElementById('firstP');
+    var secondP = document.getElementById('secondP');
+    var thirdP = document.getElementById('thirdP');
+    firstP.innerHTML = ('This option\'s index number is: ' + theSelect.selectedIndex + ' (Javascript index numbers start at 0)');
+    secondP.innerHTML = ('Its value is: ' + theSelect[theSelect.selectedIndex].value);
+    thirdP.innerHTML = ('Its text is: ' + theSelect[theSelect.selectedIndex].text);
+}
+ </script>
+

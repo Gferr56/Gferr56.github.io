@@ -8,27 +8,37 @@
 </head>
 
 <body>
-    <form>
-        <fieldset>
-            <legend> Akciók </legend>
-            <div>
-                <label for="days">A hét napjai :</label>
-                <select input type="text" id="days" name="napok">
-                    <option value="0" selected>Hétfő</option>
-                    <option value="1">Kedd</option>
-                    <option value="2">Szerda</option>
-                    <option value="3">Csütörtök</option>
-                    <option value="4">Péntek</option>
-                    <option value="5">Szombat</option>
-                    <option value="6">Vasárnap</option>
-                </select>
-                <button type="button">IDŐJÁRÁS</button>
-                <span>Ez itt egy megjelenítendő szöveg</span>
-                <marquee direction="">
-                    <script src="/CSS/Űrlapok/időjárás.js"></script>
-                </marquee>
-            </div>
-        </fieldset>
+
+    <fieldset>
+        <legend> Akciók </legend>
+        <form name="demoForm">
+            <select name="demoSelect" onchange="showData()">
+
+                <option value="0">Hétfő</option>
+                <option value="1">Kedd</option>
+                <option value="2">Szerda</option>
+                <option value="3">Csütörtök</option>
+                <option value="4">Péntek</option>
+                <option value="5">Szombat</option>
+                <option value="6">Vasárnap</option>
+            </select>
+
+            <script>
+                function showData() {
+                    var theSelect = demoForm.demoSelect;
+                    var value = theSelect[theSelect.selectedIndex].value;
+                    alert(value);
+                }
+            </script>
+            
+            <button onclick="showData()">IDŐJÁRÁS</button>
+
+            <marquee direction="">
+                <script src="/js/weather.js"></script>
+            </marquee>
+            
+        </form>
+    </fieldset>
     </form>
     <form>
         <fieldset>

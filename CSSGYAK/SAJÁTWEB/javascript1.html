@@ -47,28 +47,51 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/CSS/Űrlapok/alerts.html">ALERTS</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/CSS/Űrlapok/alerts.html"><i class="fas fa-trash-alt"></i></a>
-                </li>
-                <div class="runtext-container">
-                    <div class="main-runtext">
-                        <marquee direction="">
-                            <div class="holder">
-                                <div class="text-container">
-                                    <div class="navbar">
-                                        <script src="/CSS/Űrlapok/weather.js"></script>
-                                    </div>
-                                </div>
-                            </div>
-                        </marquee>
-                    </div>
-                </div>
-                </li>
-
             </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
         </div>
     </nav>
-
+    <button type="button" class="btn btn-primary">Primary</button>
+    <button type="button" class="btn btn-secondary">Secondary</button>
+    <button type="button" class="btn btn-success">Success</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-warning">Warning</button>
+    <button type="button" class="btn btn-info">Info</button>
+    <button type="button" class="btn btn-light">Light</button>
+    <button type="button" class="btn btn-dark">Dark</button>
+    <button type="button" class="btn btn-link">Link</button>
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <h3>Hamburger rendelés</h3>
+                <form action="">
+                    <div class="form-group">
+                        <label for="">Feltét</label>
+                        <input type="text" name="top-input" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Mennyiség</label>
+                        <input type="number" name="amount-input" class="form-control" value="1">
+                    </div>
+                    <small class="form-text text-muted">
+                        minimum 1 - maximum 10
+                    </small>
+                    <div class="form-group">
+                        Fizetendő: <span class="show-telj">0</span>Ft
+                    </div>
+                    <div type="button" onclick="hambiÁr()" class="btn btn-primary">Megrendelés</div>
+                </form>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+    <script src="/CSS/Űrlapok/js/main.js"></script>
+    <!-- <script src="/CSS/Űrlapok/scope.js"></script> -->
+    <script src="/CSS/Űrlapok/nevezetesalg.js"></script>
 </body>
 
 </html>
