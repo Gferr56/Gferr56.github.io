@@ -207,14 +207,277 @@ function sokMódosít(selector, attribute, érték) {
 
 sokMódosít("input", "placeholder", "érték");   
 sokMódosít("input", "title", "érték");
+
+
+-------------------------------------------------------------------------------------------------
+CHILDREN-----------------------------------------------------------------------------------------
+
+
+document.querySelector("input#topInput").childElementCount
+
+document.querySelector("div").childElementCount
+
+document.querySelector("div.form-group:nth-child(2)").children   HTML elemeket jeleníti meg !!!
+
+document.querySelector("div.form-group:nth-child(2)").childNodes  ---- ez a nem HTML elemeket is lekéri !!!!!!
+
+
+
+
+firstChild|lastChild vs. firstElementChild|lastElementChild
+
+Első vagy utolsó gyerekelem.
+
+element.firstChild az első gyerek, komment vagy szöveg is.
+element.firstElementChild csak az Element típusú első gyerek.
+element.lastChild az utolsó gyerek, komment vagy szöveg is.
+element.lastElementChild csak az Element típusú utolsó gyerek.
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------
+--------------------------------------------   ELEM HOZZÁADÁSA  JS   ----------------------------------------------
+
+*/
+
+let helpText = document.createElement("small");    /* egy small osztályú elemet kreálok  */
+helpText.className = "form-text text-muted";      /*felruházom a form-text... tulajdonságokkal  */
+helpText.innerHTML = "Adja meg a feltéteket !";    /*egy HTML elemben létrehozom a tartalmát  
+console.log ( helpText );   /*  ki is irathatom a konzolra    */
+
+let parent = document.querySelector("div.form-group:nth-child(1)");  /*  kijelölöm a szülőt  */
+parent.appendChild(helpText);     /*   hozzáadom  a kijelölt szülőhöz  */
+/* 
+
+
+--------------------------------------------------------------------------------------------------------------------------
+...............................................   ELEM ELTÁVOLÍTÁSA    ...................................................
+*/
+
+/*parent.removeChild(helpText);       el is távolítottuk  */
+/* 
+
+
+---------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------  ESEMÉNYEK KEZELÉSE   --------------------------------------------------------*/
+/*
+let sendButton = document.querySelector("form .btn.btn-primary");         megkerestem a gombot   
+sendButton.onclick = function() {                        az esemén a click, de az egyenlőség miatt kell az on előtag !!!
+    alert("HEIL MYSELF !");                                    ezzel egy függvényt hajt végte  
+}   
+                                                        
+
+
+let sendButton = document.querySelector("form .btn.btn-primary");        megkerestem a gombot   
+sendButton.onclick = hambiÁr;                                  még nem hajtom végre, ezért nem kell a ()  !!!!!   
+
+
+harmadik, jó megoldás:    */
+
+/*
+let sendButton = document.querySelector("form .btn.btn-primary"); 
+ /* eseményfigyelő            mit    elvégzendő  
+ sendButton.addEventListener("click", function() {     /*  nem = , hanem addEvent  ,  nem felülírja !!!!!  nem kell az on...
+  alert("HEIL MYSELF !");                                
+});
+*/
+/*
+window.addEventListener("resize", function(){
+        console.log(this.innerHeight, this.innerWidth);    /*  átméretezésnél a consol-ra kiírja  !!   
+});
 /*
 
 
+/*-------------------------------------------------------------------------------------------------------------------
+------------------------------------------------    EGÉR ESEMÉNYEK   ------------------------------------------------*/
+
+/*
+let orderForm = document.querySelector("#orderForm");   /*  kiválasztja változóba  
+orderForm.addEventListener("submit", function(ev) {       /*  ev   átadja az eseményt  
+  ev.preventDefault ();                      /*  megelőzi az oldal frissítését, én mondom meg, mit csináljon  
+  let inputs = this.querySelectorAll("input");               /*  a this most az űrlap   
+  let values = {};
+  for (let i = 0 ; i < inputs.length ; i++) {
+    values[inputs[i].name] = inputs[i].value;
+  } 
+  console.log ( values );           
+});
+*/
+
+/*
+
+onclick kattintás vagy tappintás, ha mobileszközről van szó
+
+onmouseover az elem fölé viszik az egérmutatót (mobilon értelmetlen)
+
+onmouseout az elemről elhúzzák az egérmutatót (mobilon értelmetlen)
+
+Mindegyiket valamilyen konkrét HTML elemre, azaz Element típusú objektumra lehet beállítani, a fent részletezett három mód valamelyikével:
+
+function fillPre(content) {
+  document.querySelector('pre').innerHTML = content;
+}
+let button = document.querySelector('.click-button');
+button.addEventListener('click', function(event) {
+  var className = this.className;
+  fillPre('clicked: ' + className);
+});
+*/
 
 
 
+/*
+onchange és onsubmit - form elemek
+Fontos értesülnöd róla, ha valaki piszkálja a formot.
+
+onchange input elemek értékének változását figyelheted.
+onsubmit a form (űrlap) elküldése előtt fut le, ezt figyelheted vele. Ha az eseménykezelő függvény visszatérési értéke false, akkor az űrlap nem kerül elküldésre.
+
+
+function fillPre(content) {
+  document.querySelector('pre').innerHTML = content;
+}
+var inputList = document.querySelectorAll('input');
+for (var i = 0; i < inputList.length; i++) {
+  if (inputList[i].addEventListener) {
+    inputList[i].addEventListener('change', function(event) {
+      fillPre( this.className + ': ' + this.value );
+    });
+  }
+}
+*/
+
+
+
+
+
+/*--------------------------------------------------------------------------------------------
+-------------------------   PARENT ELEMEK   PL ELTÜNTETÉS   --------------------------------*/
+
+
+let alertCloseButtons = document.querySelectorAll(".close[data-dismiss='alert']");   /*  close osztály , data... attribútum  */
+let closeFunction = function (ev) {
+  this.parentElement.style.display = "none";
+};
+for (let i = 0 ; i < alertCloseButtons.length ; i++) {
+alertCloseButtons[i].addEventListener("click", closeFunction);
+}
+
+
+/*--------------------------WEB PÉLDA-----------------
+
+<p>Example list:</p>
+
+<ul>
+  <li id="myLI">Coffee</li>
+  <li>Tea</li>
+</ul>
+
+<p>Click the button to get the node name of the parent element of the li element in the list.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myLI").parentElement.nodeName;
+  document.getElementById("demo").innerHTML = x;
+}
+</script>
+*/
+
+
+/*-------------------------------------------------------------------------------------
+----------------------------    SWITCH     --------------------------------------------
+
+
+let weekDay = new Date().getDay();
+let dayName ='';
+switch(weekDay) {
+    case 0: dayName = "Vasárnap";
+    break;
+    case 1: dayName = "Hétfő";
+    break;
+    case 2: dayName = "Kedd";
+    break;
+    case 3: dayName = "Szerda";
+    break;
+    case 4: dayName = "Csütörtök";
+    break;
+    case 5: dayName = "Péntek";
+    break;
+    case 6: dayName = "Szombat";
+    break;
+    default: dayName = "Unknown";
+}
 
 */
+/*--------------------------------------------------------------------------------------------
+---------------------------------------   WHILE   ------------------------------------------*/
+
+/*
+
+let i = 0;
+while( i < 10 ) {
+  i++;
+  console.log( i ); 
+}
+
+
+
+vagy pl.
+
+let keys = Object.keys (animal);
+i = 0;
+while (i < keys.length ) {
+    console.log(animal[keys[i]]);
+    i++;
+}
+
+*/
+
+
+/*
+
+-------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------   DOM  ÉS  CIKLUSOK   --------------------------------------*/
+
+let toppings = [
+  "Szalonna",
+  "Hagyma",
+  "Tükörtojás",
+  "Libamáj",
+  "Extra sonka"
+];
+let toppingSelect = document.querySelector("#topInput");  /*kiolvas*/
+let index = 0;                            
+while(index < toppings.length ) {                     
+  let option = document.createElement("option");         /* minden ciklusban egy HTML elem "option" */
+  option.value = toppings[index];         /* ennek az elemnek az értéke a feltétek megfelelő indexű eleme */
+  option.innerHTML = toppings[index];     /* jelenítse is meg a weboldalban */
+  toppingSelect.appendChild(option);    /* hozzáadjuk a toppingSelect változóhoz, mint gyerek */
+  index++;      /* növelem a végtelen ciklus miatt */
+}
+
+
+/*
+más:
+
+let numbers = [1,2,3,4,5,6];
+let i = 0;
+let container = document.querySelector("div");
+while(i < numbers.length) {
+  let p = document.createElement("p");
+  p.innerHTML = numbers[i];
+  container.appendChild(p);
+  i++;
+}
+
+*/
+
 
 
 

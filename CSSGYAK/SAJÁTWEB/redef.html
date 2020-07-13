@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="price-list">
+        <li>TV</li>
+        <li data-company="Dell">Server</li>
+        <li data-price="11.99">TV</li>
+        <li data-price="23.243,55">Server</li>
+        <li data-price="11.01">TV</li>
+        <li data-price="230.323,32">Server</li>
+        <li data-price="48.344,30">Server</li>
+    </ul>
+</body>
+<script>
+    const serverPrice = Array.from(
+        document.querySelectorAll('#price-list li[data-price]'))
+        .filter(item => item.textContent.includes('Server'))
+        .map(item => parseFloat(item.dataset.price.replace('.', '')
+            .replace(',', '.')))
+        .reduce((total, item) => total + item);
+    console.log("Szerver ár össz.: ", serverPrice);
+</script>
+<script>
+    const TVPrice = Array.from(
+        document.querySelectorAll('#price-list li[data-price]'))
+        .filter(item => item.textContent.includes('TV'))
+        .map(item => parseFloat(item.dataset.price.replace('.', '')
+            .replace(',', '.')))
+        .reduce((total, item) => total + item);
+    console.log("TV árak össz.: ", TVPrice);
+</script>
+
+</body>
+
+</html>

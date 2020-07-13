@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <h3>Hamburger rendelés</h3>
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                    <strong>Kedves vásárlónk!</strong> 
+                    A rendeléshez kérjük töltse ki a zűrlapot! 
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="orderForm" action="">
+                    <div class="form-group">
+                        <label for="">Feltét</label>
+                        <input type="text" name="top-input" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Mennyiség</label>
+                        <input type="number" name="amount-input" class="form-control" value="1">
+                        <small class="form-text text-muted">
+                            minimum 1 - maximum 10
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        Fizetendő: <span class="show-telj">0</span>Ft
+                    </div>
+                    <button type="submit" class="btn btn-primary">Megrendelés</buttonS>
+                </form>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+        <script>
+
+            function hambiÁr() {
+                let ár = 1000;
+                let darab = document.querySelector("input[name='amount-input']");
+                let valósDarab = parseInt(darab.value);
+                valósDarab = isNaN(valósDarab) ? 0 : valósDarab;
+                ÁrTelj(ár, valósDarab);
+            }
+            function ÁrTelj(ár=1000, valósDarab=1) {
+            
+                        let showTelj = document.querySelector("span.show-telj");
+                        if ( valósDarab > 10 ) {
+                            alert("Legfeljebb 10 darab rendelhető !")
+                            }
+                        else if( valósDarab < 1 ) {
+                            alert("Legalább 1 darabot rendelj !")
+                            }
+                        else {
+                            let teljes = parseInt(valósDarab * ár);
+                            showTelj.innerHTML = teljes;
+                            }
+            
+            }
+        </script>
+    
+</body>
+</html>
+
+
+
+
+
+
+

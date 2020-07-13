@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .democlass {
+          color: red;
+        }
+        </style>
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="democlass">Hello World</h1>
+
+<p>Click the button to display the value of the class attribute of the h1 element.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var x = document.getElementsByTagName("H1")[0].getAttribute("class"); 
+  document.getElementById("demo").innerHTML = x;
+}
+</script>
+
+<h2>Hello World</h2>
+
+<p>Click the button to add a class attribute with the value of "democlass" to the h1 element.</p>
+
+<button onclick="myFunction2()">Try it</button>
+
+<script>
+function myFunction2() {
+  document.getElementsByTagName("H2")[0].setAttribute("class", "democlass"); 
+}
+</script>
+</body>
+</html>

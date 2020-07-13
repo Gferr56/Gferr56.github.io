@@ -72,7 +72,7 @@
             <div class="col-3"></div>
             <div class="col-6">
                 <h3>Hamburger rendelés</h3>
-                <form action="">
+                <form id="orderForm" action="">
                     <div class="form-group">
                         <label for="">Feltét</label>
                         <input id="topInput" type="text" name="top-input" class="form-control">
@@ -87,13 +87,28 @@
                     <div class="form-group">
                         Fizetendő: <span class="show-telj">0</span>Ft
                     </div>
-                    <button onclick="hambiÁr()" type="button" class="btn btn-primary">Megrendelés</button>
+                    <button type="submit" class="btn btn-primary">Megrendelés</button>  <!--innen button onclick="hambiÁr()" type="button" kivéve!-->
                 </form>
             </div>
             <div class="col-3"></div>
         </div>
     </div>
-    <script src="/SAJÁTWEB/js/main.js"></script>  
+    <script>
+        let orderForm = document.querySelector("#orderForm");   /*  kiválasztja változóba  */
+        orderForm.addEventListener("submit", function (ev) {       /*  ev   átadja az eseményt  */
+            ev.preventDefault();                      /*  megelőzi az oldal frissítését, én mondom meg, mit csináljon  */
+            let inputs = this.querySelectorAll("input");               /*  a this most az űrlap   */
+            let values = {};
+            for (let i = 0; i < inputs.length; i++) {
+                values[inputs[i].name] = inputs[i].value;
+            }
+            console.log(values);
+        });
+    </script>
+
+
+    <!--<script src="/SAJÁTWEB/js/main.js"></script>  -->
+
     <!-- <script src="/CSS/Űrlapok/scope.js"></script> -->
     <!--  <script src="/CSS/Űrlapok/nevezetesalg.js"></script>  -->
 </body>
