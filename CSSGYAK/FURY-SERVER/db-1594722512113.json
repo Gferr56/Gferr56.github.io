@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Lukbuk Simon",
+      "email": "lukbuks@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Lakatos Amnestya",
+      "email": "lakatosa@gmail.com"
+    },
+    {
+      "id": 3,
+      "name": "Abros Tistakos",
+      "email": "abrost@gmail.com"
+    },
+    {
+      "id": 3,
+      "name": "Helena Marokbatos",
+      "email": "helenam@gmail.com"
+    },
+    {
+      "id": 3,
+      "name": "Niakisman Tökül",
+      "email": "niakismant@gmail.com"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "userId": 1
+    }
+  ]
+}

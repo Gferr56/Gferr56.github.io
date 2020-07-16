@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="clockBtn">KÜLDÉS</button>
+
+
+
+    <!-- 
+const rákatt = () => console.log("RÁKATT");   ---   ENTER
+const gomb = document.querySelector("#clickButton");  ---  ENTER
+gomb.addEventListener("click", rákatt);
+console.log("Legutóbbi művelet."); 
+
+
+PROMISE:
+1.
+
+const myPromise7 = new Promise( (resolve, reject) => {
+    setTimeout( () => {
+    reject({error: "FURY"});
+    }, 5000);
+});
+myPromise7.then(
+    data => console.log(data),
+    err => console.log(err),
+    )
+
+
+2.  ÓRA
+
+
+    <script>
+        var Clock = function (buttonElement) {
+            this.tickTimer = 0;
+            if (buttonElement) {
+                buttonElement.addEventListener(
+                    'click', this.toggleRun.bind(this));
+                }
+            };
+            Clock.prototype.start = function () {
+                this.scheduleTick();
+            };
+            Clock.prototype.pause = function () {
+                this.tickTimer = this.tickTimer && clearTimeout(this.tickTimer);
+            };
+            Clock.prototype.scheduleTick = function () {
+                if (this.isRunning()) {
+                    this.pause();
+                }
+                this.tickTimer = setTimeout(this.tick.bind(this), 1000);
+            };
+            Clock.prototype.toggleRun = function () {
+                this.isRunning() ? this.pause() : this.scheduleTick();
+            };
+            Clock.prototype.isRunning = function () {
+                return !!this.tickTimer;
+            };
+            Clock.prototype.tick = function () {
+                
+                this.scheduleTick();
+            };
+            // Óra indítása:
+            var button = document.getElementById('clockBtn'),
+            clockWidget = new Clock(button);
+            clockWidget.start();
+            
+        </script>
+
+
+3.
+
+<script>
+    let datas1 = [
+    { firstName: "John", lastName: "Doe", age: 31 },
+    { firstName: "Jane", lastName: "Doe", age: 20 },
+    { firstName: "Anonim", lastName: "Anonymous", age: 62 }
+    ];
+    
+    function postDataFunc(age) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                let post1 = datas.find(postdata => postdata.age === age);
+                if (post1) {
+                    resolve(post1);
+                } else {
+                    reject(Error("Data not found"));
+                }
+            }, 3000);
+        });
+    }
+    
+    postDataFunc(31)
+    .then(post1 => {
+        console.log(post1);
+        return post1;
+      })
+      .then(post1 => {
+          console.log("Name:", post1.firstName, post1.lastName);
+        })
+        .catch(err => {    console.error(err);  });
+        
+    </script>
+    
+    
+    A postDataFunc-be megadunk egy életkort.
+    Ezen belül a Promise-nak megadjuk a resolve, és reject paramétereket.
+    Indítunk egy setTimeout-ot. Ez egy aszinkron művelet, ezt fogja körbe a Promise.
+    A post egy boolean, azaz hogy van e találatunk vagy nincs. Azaz megnézzük,hogy a tömbünkbe van e olyan objektum, ahol az age egyenlő a megadott értékkel.
+    Ha nem volt találatunk a reject-et hívjuk meg.
+    Ha volt találatunk a resolve-ot hívjuk meg.
+    Meghívjuk a függvényt jelenleg a 31 paraméterrel. A függvényünk visszatérési értéke a Promise.
+    Három másodperc múlva kiírja, hogy: Name: John Doe. (Ha nem talált akkor pedig: not found.)
+    A catch a hibakezelésre van.
+
+    
+
+4.
+
+
+A következő példában egy újabb remek használatát láthatjátok a Promise-nak. Két Promise hozunk létre.
+ A Promise.all() annyit tesz, hogy a paraméterként megadott, jelen esetben kettő darab Promise-ból egy darab összegyúrt Promise-t ad vissza.
+ Ez az összetett Promise akkor lesz teljesített, ha a magába foglalt Promise-ok mindegyike lefutott.
+
+Az alábbi példában az egyik 3 a másik 10 másodperc után fut le. Így a későbbi időpontban,
+ tehát 10 másodperc múlva lesz mind a kettő teljesítve (Ne feledjük, aszinkron futnak!)
+
+ 
+let cat1 = new Promise(resolve => {
+  setTimeout(() => {
+    resolve({
+      sound: "miau",
+      loyal: false
+    });
+  }, 10000);
+});
+let dog1 = new Promise(resolve => {
+  setTimeout(() => {
+    resolve({
+      sound: "vau",
+      loyal: true
+    });
+  }, 3000);
+});
+
+Promise.all([cat1, dog1]).then(responses => {
+  const [cat1Props, dog1Props] = responses;
+  console.log(cat1Props, dog1Props);
+});
+-->
+
+
+</body>
+
+</html>
