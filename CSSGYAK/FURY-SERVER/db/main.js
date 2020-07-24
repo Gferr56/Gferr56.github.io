@@ -1,3 +1,11 @@
+//Keys of users //
+let keys = ["id", "name", "email"];
+
+
+
+
+
+
 // Adatok lekérése a szerverről : //
 function getServerData (url) {
     let fetchOptions = {
@@ -31,21 +39,31 @@ function fillDataTable(data, tableID) {
 
 //  ŰJ SOR HOZZÁADÁSA  //
 
-let newSor = addNUserSor(data[0]);
-table.appendChild(newSor);
 
 
 
+let tBody = document.querySelector("tbody");
+tBody.innerHTML = "";
+let newSor = addNUserSor();
+tBody.appendChild(newSor);
 
-    
-    let tBody = document.querySelector("tbody");
+
+
         for (let sor of data) {
            tr = createAnyElement("tr");
-           for ( let k in sor) {
+           for ( let k of keys) {
                 let td = createAnyElement("td");
-                td.innerHTML = sor[k];
+                let input = createAnyElement("input", {
+                    class: "form-control",
+                    value: sor[k],
+                    name: k
+                });
+                if (k == "id") {
+                    input.setAttribute("readonly", true);
+                }
+                td.appendChild(input);
                 tr.appendChild(td);
-           } 
+            } 
            let btnGroup = createBtnGroup();
            tr.appendChild(btnGroup);
         
@@ -63,7 +81,7 @@ function createAnyElement (name, attributes) {
 
 function createBtnGroup () {
     let group = createAnyElement("div", {class: "btn btn-group"});
-    let infoBtn = createAnyElement("button", {class: "btn btn-info", onclick: "getInfo (this)"});
+    let infoBtn = createAnyElement("button", {class: "btn btn-info", onclick: "setSor (this)"});
     infoBtn.innerHTML = '<i class="fa fa-refresh" aria-hidden="true"></i>';
     let delBtn = createAnyElement("button", {class: "btn btn-danger", onclick: "delInfo (this)"});
     delBtn.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
@@ -136,13 +154,13 @@ function delInfo(btn) {
 
 /*  
 
-CREATA NEW USER
+CREATE NEW USER
 
 */
 
 function addNUserSor () {
     let tr = createAnyElement("tr");
-    for (let k in {id: '', name: '', email: ''}) {
+    for (let k of keys) {
         let td = createAnyElement("td");
         let input = createAnyElement("input", {
             class: "form-control",
@@ -198,6 +216,31 @@ function getSorData(tr) {
 }
 
 
+//  Set SOR //
+
+function setSor(btn) {
+    let tr = btn.parentElement.parentElement.parentElement;
+    let data = getSorData(tr);
+    let fetchOptions = {
+        method: "PUT",
+        mode: "cors",
+        cache: "no-cache",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    };
+
+fetch (`http://localhost:3000/users/${data.id}`, fetchOptions).then (
+    resp => resp.json(),
+    err => console.error(err)
+    ).then (
+        data => startGetData()
+    );
+
+}
+
+
 
 /*   GOMB PLUS
 <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
@@ -238,5 +281,40 @@ A fetchOptions tartalmaz egy új tulajdonságot, headers a neve. Itt adtam meg, 
 body: ez a tulajdonság adja meg az adatokat, amelyeket a szervenek fogok küldeni. Mivel azt mondtam a fejlécben, hogy json lesz a formátum, ezért a user objektumot json formátumra kell alakítanom.
 A válaszban az újonnan létrejött usert kapom vissza. Az id tulajdonságot nem szokták megadni, mivel azt a szerver általában automatikusan hozza létre. A válasz így néz ki az én esetemben:
 {name: "Peter Big", age: 21, id: 4}
+
+
+
+
+
+
+
+PUT kérés
+A PUT kérések a megadott erőforrást feltöltik a szerverre. Ebből a szempontból nagyon hasonlóak a POST -hoz.
+
+Adatok módosítása
+Mi most a PUT kérést fogjuk az adatmódosításra használni. Ezért a body-ban, el fogjuk küldeni a szervernek a módosítandó adatokat, az url pedig az id mezőt is tartalmazni fogja, hogy meg tudja állapítani a szerver, hogy melyik felhasználót szeretnénk módosítani.
+
+let user = {
+  name: "Micky Big",
+  age: 21
+};
+let fetchOptions = {
+  method: 'PUT',
+  mode: 'cors',
+  cache: 'no-cache',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  credentials: 'same-origin',
+  body: JSON.stringify( user )
+};
+fetch( "http://localhost:3000/users/3", fetchOptions )
+  .then( resp => resp.json() )
+  .then( json => console.log(json) );
+A frissítés két dologban tér el a létrehozástól:
+
+A metódus PUT.
+A fetch url végén meg kell adni az id-t, hogy tudja a szerver hogy melyik user-t kell módosítani.
+Ezt a választ kaptam: {name: "Micky Big", age: 21, id: 3}, látod, az id változatlan, az adatok viszont módosultak.
 
 */
