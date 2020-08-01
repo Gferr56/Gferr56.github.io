@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/lib/bootstrap-4.4.1/dist/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <h3>HAMBURGER RENDELÉS</h3>
+                <form action="">
+                    <div class="form-group">
+                        <label>FELTÉT</label>
+                        <input class="form-control" name="top-input" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label>MENNYISÉG</label>
+                        <input class="form-control" name="amount-input" type="number">
+                        <small class="form-text text-muted">
+                            Minimum 1, maximum 10 darab rendelhető !
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        Fizetendő: <span class="show-amount">0 </span> Ft
+                    </div>
+                    <button onclick="calcAmount()" type="button" class="btn btn-primary">MEGRENDELÉS</button>
+                </form>
+                <div class="col-3"></div>
+            </div>
+        </div>
+
+
+        <script src="/js/main.js"></script>
+</body>
+
+</html>

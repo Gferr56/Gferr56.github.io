@@ -1,0 +1,68 @@
+body {
+    background-color: #f0f0f0;
+}
+
+.login-div {
+    padding: 22px;
+    border: solid 1px #b0b0b0;
+    box-shadow: 2px 3px 3px #c0c0c0;
+    display:inline-block;
+}
+
+.login-div input {
+    display:block;
+    margin-bottom: 11px;
+}
+
+/*.login-div input[type="email"] {
+    border: solid 1px blue;
+}
+
+.login-div input[type="password"] {
+    border: solid 1px red;
+} */
+
+/*
+input[class*="blue"] {
+    border: solid 1px blue;
+}
+
+input[class^="red"] {
+    border: solid 1px red;
+}
+
+/*
+Fontosabb pseudo szelektorok
+:hover - ha az elem fölé viszik az egeret,
+:visited - azok a linkek, amelyekre már kattintottak,
+:active - ha a felhasználó használ egy elemet, mondjuk rákattint,
+:focus - elsősorban input mezőknél, ha éppen használjuk,
+:first-child - a szülő elem első gyereke,
+:last-child - a szülő elem utolsó gyereke,
+:nth-child(n) - az n-edik gyereke a szülő elemnek,
+:empty - olyan elem, aminek nincs gyereke, azaz nem tartalmaz beágyazott elemet,
+:checked - a kiválasztott checkbox,
+:disabled - letiltott elem.
+*/
+
+.login-div button:hover {
+    box-shadow: 3px 3px 3px #a0a0a0;
+}
+
+.login-div input:focus {
+    border: none;
+    box-shadow: 1px 1px 2px lightblue;
+}
+
+ul li:last-child {
+    text-decoration: underline;
+}
+
+ul li:first-child {
+    color: blue;
+}
+
+ul li:nth-child(2) {
+    color: red;
+}
+
