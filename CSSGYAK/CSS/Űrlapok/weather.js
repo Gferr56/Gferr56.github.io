@@ -1,4 +1,4 @@
-let temp = 5;
+temp = -1;
 function határ (ajánlat){
     határ = (temp < 0 ? ajánlat = "...egy lélekmelegítő forró csoki?" : false )
     }

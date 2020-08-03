@@ -1,28 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/HTML ALAPOK/lib/bootstrap-4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/HTML ALAPOK/CSS/weather.css">
     <title>Document</title>
 </head>
+
 <body>
 
-    <h6>PRODUCTS</h6>
+    <fieldset class="scheduler-border">
+        <legend class="scheduler-border">IDŐJÁRÁS - AKCIÓK</legend>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <form name="demoForm">
+                        <label for="napok">Válassz:</label>
+                        <select id="napok" name="demoSelect"> onchange="getData()"
+                            <option value="0">Hétfő</option>
+                            <option value="1">Kedd</option>
+                            <option value="2">Szerda</option>
+                            <option value="3">Csütörtök</option>
+                            <option value="4">Péntek</option>
+                            <option value="5">Szombat</option>
+                            <option value="6">Vasárnap</option>
+                        </select>
+                </div>
+                <div class="col-1">
+                    <button onclick=getData() type="button" class="btn btn-primary">hőfok</button>
+                </div>
+                <div class="col-3">
 
-    <ul>
-        <li>
-            <a href="/htmlhome.html">HOME</a>
-        </li>
-        <li>
-            <a href="/orders.html">ORDERS</a>
-        </li>
-        <li>
-            <a href="/products.html">PRODUCTS</a>
-        </li>
-        <li>
-            <a href="/about.html">ABOUT</a>
-        </li>
-    </ul>
-    
+                    <span>
+                        <!-- <script src="/HTML ALAPOK/js/weather.js"></script> -->
+                        <marquee id="hő" direction="">
+                            <div class="navbar">
+                                <script src="/HTML ALAPOK/js/weather.js"></script>
+                            </div>
+                        </marquee>
+                    </span>
+                </div>
+                <div class="col-xl"></div>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="scheduler-border">
+        <legend class="scheduler-border">PRODUCTS</legend>
+        <div class="container">
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-2">
+                    <ul>
+                        <li>
+                            <a href="/HTML ALAPOK/htmlhome.html">HOME</a>
+                        </li>
+                        <li>
+                            <a href="/HTML ALAPOK/orders.html">ORDERS</a>
+                        </li>
+                        <li>
+                            <a href="/HTML ALAPOK/products.html">PRODUCTS</a>
+                        </li>
+                        <li>
+                            <a href="/HTML ALAPOK/about.html">ABOUT</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-5"></div>
+                <div class="col-4"></div>
+            </div>
+        </div>
+    </fieldset>
+
+
 </body>
+
 </html>

@@ -1,11 +1,14 @@
-let temp = 5;
-function határ (ajánlat){
-    határ = (temp < 0 ? ajánlat = "...egy lélekmelegítő forró csoki?" : false )
+let temp1 = 5;
+temp1 = 11;
+
+function határ (ajánlat) {
+    határ = (temp1 < 0 ? ajánlat = "...egy lélekmelegítő forró csoki?" : true )
     }
     function határ (ajánlat){
-    határ = (temp < 10 ? ajánlat = "...egy forró teát, esetleg?" : false )
+    határ = (temp1 < 10 ? ajánlat = "...egy forró teát, esetleg?" : false )
 }
-     határ();
-     aktuális = ("Hő: " + temp +" C°" + határ);
+határ();
+tempReal = temp1
+     aktuális = ("Hő: " + tempReal +" C°" + határ);
      console.log(aktuális);
      document.write(aktuális);

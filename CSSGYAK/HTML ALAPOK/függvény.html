@@ -1,14 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <h1>ELTÜNTET</h1>
 
-    <script src="/js/függvény.js"></script>
-    
+<body>
+
+    <!-- <h1>ELTÜNTET</h1>
+
+    <script src="/js/függvény.js"></script> -->
+    <h2>ELSŐ:</h2>
+    <pre>
+    <code>
+        let varOne = 10;
+        let varTwo = 20;
+        console.log("A függvény hívása előtt");
+        console.log("varOne =" + varOne +"varTwo =" +varTwo);
+        
+        function callByValue(varOne, varTwo) {
+            varOne = 100;
+            varTwo = 200;
+            console.log("A függvényen belül");
+          console.log("varOne =" + varOne +"varTwo =" +varTwo);
+        }
+        
+        callByValue(varOne, varTwo);
+        console.log("A függvény hívása után");
+        console.log("varOne =" + varOne +" varTwo =" +varTwo);
+    </code>
+    </pre>
+
+    <h2>MÁSODIK:</h2>
+    <pre>
+        <code>
+            let varArray = [10];
+            console.log("Függvényhívás előtt");
+            console.log(varArray);
+            
+            function callByReference(arr) {
+                arr[0] = 100;
+                console.log("Érték a függvényen belül");
+                console.log(arr);
+            }
+            
+            callByReference(varArray);
+            console.log("Függvényhívás után");
+            console.log(varArray);
+        </code>
+    </pre>
+
+
+
+
+
+
+    <script src="/HTML ALAPOK/js/Paraméter.js"></script>
+
 </body>
+
 </html>

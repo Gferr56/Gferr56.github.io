@@ -4,64 +4,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/HTML ALAPOK/lib/bootstrap-4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/HTML ALAPOK/CSS/weather.css">
     <title>Document</title>
 </head>
 
 <body>
 
-    <div class="form">
-        <fieldset>
-            <legend>ADATOK</legend>
-            <div>
-                <label for="name">NÉV *</label>
-                <input id="name" type="text" name="name">
+    <fieldset class="scheduler-border">
+        <legend class="scheduler-border">IDŐJÁRÁS - AKCIÓK</legend>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <form name="demoForm">
+                        <label for="napok">Válassz napot:</label>
+                        <select id="napok" name="demoSelect" >  onchange="getData()"
+                            <option value="0">Hétfő</option>
+                            <option value="1">Kedd</option>
+                            <option value="2">Szerda</option>
+                            <option value="3">Csütörtök</option>
+                            <option value="4">Péntek</option>
+                            <option value="5">Szombat</option>
+                            <option value="6">Vasárnap</option>
+                        </select>
+                </div>
+                <div class="col-1">
+                    <button onclick=getData() type="button" class="btn btn-primary">hőfok</button>
+                </div>
+                <div class="col-3">
+
+                    <span>
+                            <!-- <script src="/HTML ALAPOK/js/weather.js"></script> -->
+                        <marquee id="hő" direction="">
+                            <div  class="navbar">
+                                <script src="/HTML ALAPOK/js/weather.js"></script>
+                            </div>
+                        </marquee>
+                    </span>
+                </div>
+                <div class="col-xl"></div>
             </div>
-            <div>
-                <label for="email">EMAIL *</label>
-                <input id="email" type="email" name="email">
-            </div>
-            <div>
-                <label for="address">CÍM *</label>
-                <input id="address" type="text" name="address">
-            </div>
-            <div>
-                <label for="comment">EGYÉB *</label>
-                <textarea id="comment" name="comment" rows="6"></textarea>
-            </div>
-    </div>
+        </div>
     </fieldset>
 
-    <fieldset>
-        <legend>EXTRÁK</legend>
-        <div>
-            <input id="none" type="radio" name="extras" value="0">
-            <label for="none">Nem kérek</label>
+
+    <fieldset class="scheduler-border">
+        <legend class="scheduler-border">ADATOK</legend>
+        <div class="container">
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-5">
+                    <form action="">
+                        <div class="form-group">
+                            <label for="name">NÉV   *</label>
+                            <input id="name" type="text" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">EMAIL *</label>
+                            <input id="email" type="email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">CÍM   *</label>
+                            <input id="address" type="text" name="address">
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">EGYÉB *</label>
+                            <textarea id="comment" name="comment" rows="6"></textarea>
+                        </div>
+                    </form>
+
+                    <div class="col-6">
+                        <fieldset>
+                            <legend>EXTRÁK</legend>
+                            <div>
+                                <input id="none" type="radio" name="extras" value="0">
+                                <label for="none">Nem kérek</label>
+                            </div>
+                            <div>
+                                <input id="sajt" type="radio" name="extras" value="300">
+                                <label for="sajt">Cheese</label>
+                            </div>
+                            <div>
+                                <input id="duplasajt" type="radio" name="extras" value="500">
+                                <label for="duplasajt">Double-Cheese</label>
+                            </div>
+                            <div>
+                                <input id="hús" type="radio" name="extras" value="600">
+                                <label for="hús">Meat</label>
+                            </div>
+                            <div>
+                                <input id="duplahús" type="radio" name="extras" value="800">
+                                <label for="duplahús">Double-Meat</label>
+                            </div>
+                            <div>
+                                <label for="sauces">SZÓSZOK</label>
+                                <select name="szószok" id="sauces">
+                                    <option value="200" selected>szósz 1</option>
+                                    <option value="300" selected>szósz 2</option>
+                                </select>
+                            </div>
+
+                        </fieldset>
+
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <input id="sajt" type="radio" name="extras" value="300">
-            <label for="sajt">Cheese</label>
-        </div>
-        <div>
-            <input id="duplasajt" type="radio" name="extras" value="500">
-            <label for="duplasajt">Double-Cheese</label>
-        </div>
-        <div>
-            <input id="hús" type="radio" name="extras" value="600">
-            <label for="hús">Meat</label>
-        </div>
-        <div>
-            <input id="duplahús" type="radio" name="extras" value="800">
-            <label for="duplahús">Double-Meat</label>
-        </div>
-        <div>
-            <label for="sauces">SZÓSZOK</label>
-            <select name="szószok" id="sauces">
-                <option value="200" selected>szósz 1</option>
-                <option value="300" selected>szósz 2</option>
-            </select>
-        </div>
-        
     </fieldset>
+
+
+
+
+
+    <script src="/HTML ALAPOK/js/weather.js"></script>
 
 </body>
 
