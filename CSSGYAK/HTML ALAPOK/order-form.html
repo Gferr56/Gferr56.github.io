@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/CSSGYAK/HTML ALAPOK/lib/bootstrap-4.4.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/CSSGYAK/HTML ALAPOK/CSS/weather.css">
+    <link rel="stylesheet" href="/HTML ALAPOK/lib/bootstrap-4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/HTML ALAPOK/CSS/weather.css">
     <title>Document</title>
 </head>
 
@@ -15,10 +15,10 @@
         <legend class="scheduler-border">IDŐJÁRÁS - AKCIÓK</legend>
         <div class="container">
             <div class="row">
-                <div class="col">
+                <div class="col-md-4">
                     <form name="demoForm">
                         <label for="napok">Válassz napot:</label>
-                        <select id="napok" name="demoSelect" >  onchange="getData()"
+                        <select id="napok" name="demoSelect"> onchange="getData()"
                             <option value="0">Hétfő</option>
                             <option value="1">Kedd</option>
                             <option value="2">Szerda</option>
@@ -27,27 +27,42 @@
                             <option value="5">Szombat</option>
                             <option value="6">Vasárnap</option>
                         </select>
+                    </form>
                 </div>
-                <div class="col-1">
+                <div class="col-sm-1">
                     <button onclick=getData() type="button" class="btn btn-primary">hőfok</button>
                 </div>
-                <div class="col-3">
+                <div class="col-sm-4">
 
                     <span>
-                            <!-- <script src="/HTML ALAPOK/js/weather.js"></script> -->
-                        <marquee id="hő" direction="">
-                            <div  class="navbar">
-                                <script src="/CSSGYAK/HTML ALAPOK/js/weather.js"></script>
+                        <!-- <script src="/HTML ALAPOK/js/weather.js"></script> -->
+                        <marquee direction="">
+                            <div id="hő">
+                                <script src="/HTML ALAPOK/js/weather.js"></script>
                             </div>
                         </marquee>
                     </span>
                 </div>
-                <div class="col-xl"></div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="scheduler-border">
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <div id="átlag">
+                        <span>
+                            <script src="/HTML ALAPOK/js/weather.js"></script>
+                        </span>
+                    </div>
+
+                </div>
             </div>
         </div>
     </fieldset>
 
-
+    
     <fieldset class="scheduler-border">
         <legend class="scheduler-border">ADATOK</legend>
         <div class="container">
@@ -56,7 +71,7 @@
                 <div class="col-5">
                     <form action="">
                         <div class="form-group">
-                            <label for="name">NÉV   *</label>
+                            <label for="name">NÉV *</label>
                             <input id="name" type="text" name="name">
                         </div>
                         <div class="form-group">
@@ -64,7 +79,7 @@
                             <input id="email" type="email" name="email">
                         </div>
                         <div class="form-group">
-                            <label for="address">CÍM   *</label>
+                            <label for="address">CÍM *</label>
                             <input id="address" type="text" name="address">
                         </div>
                         <div class="form-group">

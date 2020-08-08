@@ -1,15 +1,58 @@
 fieldset.scheduler-border {
-    border: 1px groove  #ddd !important;
-    padding: 0 1.4em 1.4em 1.4em !important;
-    margin: 0 0 1.5em 0 !important;
-    -webkit-box-shadow:  0px 0px 0px 0px #000;
-            box-shadow:  0px 0px 0px 0px #000;
+    border: 1px  #f3f4f7 !important;
+    padding: 0px 0px 0px 10px;
+    initial-letter-align: 30px;
+    background-color: #e7aa59;
+    /*padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 2px 0 !important;
+    /*-webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;*/
 }
 
 
 
 legend.scheduler-border {
-    width:inherit; /* Or auto */
-    padding:0 10px; /* To give a bit of padding on the left and right */
-    border-bottom: solid #e0e0e0;
+    width: inherit; /* Or auto */
+    height: 28px;
+    margin-left: 10px;
+    padding:0px; /* To give a bit of padding on the left and right */
+    /*border-bottom: solid #e0e0e0;*/
+    border-radius: 4px;
+    background-color: #007BF3;
+    color: azure;
+    font-size: 18px;
+    border-collapse: separate;
 }
+
+marquee.futó {
+    color: #007bFf;
+    font-size: 18px;
+}
+
+label.select {
+    color: #007fFf;
+    font-size: 20px;
+    border: none;
+}
+
+select.select {
+    color: white;
+    background-color: #007BFf;
+    border-radius: 4px;
+    border-color: black;
+    padding: 6px 12px;
+    color-interpolation-filters: inherit;
+}
+
+li::marker {
+    color: blue;
+    font-size: 1.2em;
+}
+
+
+
+
+
+
+
+  

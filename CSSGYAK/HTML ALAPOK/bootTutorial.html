@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap-4.5.1-dist/bootstrap-4.5.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/HTML ALAPOK/js/boostrapTut.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-1-md-1-sm-0"></div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="well">
+                        <div class="custDiv">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="custDivHead">
+                                            IDŐJÁRÁS-AKCIÓ
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="custDiv">
+                                            <div class="custDivDrop">
+                                                <form name="demoForm">
+                                                    <label class="select" for="napok">Válassz napot:</label>
+                                                    <select class="btn btn-primary" id="napok" name="demoSelect">
+                                                        onchange="getData()"
+                                                        <option value="0">Hétfő</option>
+                                                        <option value="1">Kedd</option>
+                                                        <option value="2">Szerda</option>
+                                                        <option value="3">Csütörtök</option>
+                                                        <option value="4">Péntek</option>
+                                                        <option value="5">Szombat</option>
+                                                        <option value="6">Vasárnap</option>
+                                                    </select>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="custButton">
+                                            <button onclick=getData() type="button"
+                                                class="btn btn-primary">hőfok</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="custDiv">
+                                            <span>
+                                                <!-- <script src="/HTML ALAPOK/js/weather.js"></script> -->
+                                                <marquee class="futó" direction="">
+                                                    <div id="hő">
+                                                        <script src="/HTML ALAPOK/js/weather.js"></script>
+                                                    </div>
+                                                </marquee>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <span class="d-md-inline large p-1 bg-danger text-white">Heti max.:</span><br>
+                                        <span class="d-md-inline mid p-0.3 bg-success text-white">Heti átl.:</span><br>
+                                        <span class="d-md-inline small p-0.3 bg-info text-white">Heti min.:</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-1-md-1-sm-0"></div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <!-- The above example creates three equal-width columns on small, medium, large,
+       and extra large devices using our predefined grid classes. Those columns are centered in the page with the parent .container.
+
+Breaking it down, here’s how it works:
+
+Containers provide a means to center and horizontally pad your site’s contents.
+Use .container for a responsive pixel width or .container-fluid for width: 100% across all viewport and device sizes.
+Rows are wrappers for columns. Each column has horizontal padding (called a gutter) for controlling the space between them. 
+This padding is then counteracted on the rows with negative margins. 
+This way, all the content in your columns is visually aligned down the left side.
+In a grid layout, content must be placed within columns and only columns may be immediate children of rows.
+Thanks to flexbox, grid columns without a specified width will automatically layout as equal width columns.
+For example, four instances of .col-sm will each automatically be 25% wide from the small breakpoint and up. 
+See the auto-layout columns section for more examples.
+Column classes indicate the number of columns you’d like to use out of the possible 12 per row. So, if you want three equal-width columns across,
+you can use .col-4.
+Column widths are set in percentages, so they’re always fluid and sized relative to their parent element.
+Columns have horizontal padding to create the gutters between individual columns, however, you can remove the margin from rows
+and padding from columns with .no-gutters on the .row.
+To make the grid responsive, there are five grid breakpoints, one for each responsive breakpoint: all breakpoints (extra small), 
+small, medium, large, and extra large.
+Grid breakpoints are based on minimum width media queries, meaning they apply to that one breakpoint and all those above it 
+(e.g., .col-sm-4 applies to small, medium, large, and extra large devices, but not the first xs breakpoint).
+You can use predefined grid classes (like .col-4) or Sass mixins for more semantic markup.
+Be aware of the limitations and bugs around flexbox, like the inability to use some HTML elements as flex containers. -->
+
+
+</body>
+
+</html>
